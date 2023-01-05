@@ -54,8 +54,7 @@ Unauthenticated user:
 - Given I am user, when I favourite, create, edit, saved, a map a pop appears to show that I am unable to save the map.
 
 # ERD
-Please see the screenshot below
-
+!["ERD"](https://github.com/WDFP/Midterm-Project/blob/master/plans/ERD/Midterm_ERD.png?raw=true)
 
 # Routes
 
