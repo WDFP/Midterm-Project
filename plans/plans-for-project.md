@@ -58,12 +58,12 @@ Unauthenticated user:
 
 # Routes
 
-/ -> home route
-/:id
-/:id/profile --> profile route
-/:id/delete --> deleting a map
-/:id/map --> creating a new map
-/:id/edit --> edit a map by adding/ deleting points in a map
+- / -> home route
+- /:id
+- /:id/profile --> profile route
+- /:id/delete --> deleting a map
+- /:id/map --> creating a new map
+- /:id/edit --> edit a map by adding/ deleting points in a map
 
 
 # Minimum Viable Demo
@@ -78,8 +78,6 @@ Authenticated users:
 
 Users:
 - looking at all points that shows the title, description, image in all the maps.
-
-
 
 # WireFrame
 
