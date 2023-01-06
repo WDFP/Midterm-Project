@@ -87,4 +87,12 @@ Users:
 ## Profile page - Wireframe
 !["Profile Page"](https://github.com/WDFP/Midterm-Project/blob/master/plans/Wireframe/profile%20page.png?raw=true)
 
-#
+# Tech usage and specifics
+- Our app a multipage.
+- Back End: Node and Express
+- Front End: HTML, CSS, JS, jQuery, Bootstrap
+
+# Work mode
+We are pair programming all the way through, starting from the back end to the front end.
+We are will the requirement, user stories and scenarios as a guide.
+
