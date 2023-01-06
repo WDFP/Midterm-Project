@@ -80,5 +80,8 @@ Users:
 - looking at all points that shows the title, description, image in all the maps.
 
 # WireFrame
+ - homepage
+ - profile
+ - map
 
 #
