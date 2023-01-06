@@ -80,8 +80,11 @@ Users:
 - looking at all points that shows the title, description, image in all the maps.
 
 # WireFrame
-
+## Homepage - Wireframe
 !["Homepage"](https://github.com/WDFP/Midterm-Project/blob/master/plans/Wireframe/Homepage.png?raw=true)
+## Map Page - Wireframe
 !["Map page"](https://github.com/WDFP/Midterm-Project/blob/master/plans/Wireframe/map%20page.png?raw=true)
-!["Profile Page"](https://github.com/WDFP/Midterm-Project/blob/master/plans/ERD/Midterm_ERD.png?raw=true)
+## Profile page - Wireframe
+!["Profile Page"](https://github.com/WDFP/Midterm-Project/blob/master/plans/Wireframe/profile%20page.png?raw=true)
+
 #
