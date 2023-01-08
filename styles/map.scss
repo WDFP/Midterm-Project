@@ -1,4 +1,77 @@
 #map {
-  height: 400px;
-  width: 50%;
+  height: 60em;
+  width: 80%;
+}
+
+.viewport {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.marker_nav {
+  height: 60em;
+  background-color: #1F456E;
+  width:20%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marker_nav > div {
+  background-color: #ffffff;
+  width: 91%;
+  height: 12%;
+  margin-left:5px;
+  padding:5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(138, 138, 138);
+}
+
+.text_information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  font-size: 15px;
+  color:black
+}
+
+.text_information > p {
+  margin: 0;
+  width: 95%;
+  border-radius: 25px;
+  padding: 3px;
+}
+
+.text_information > p:nth-child(1) {
+  background-color: rgb(203, 203, 203);
+}
+
+.text_information > p:nth-child(2) {
+  margin-top: 3px;
+}
+
+.text_information > p > span {
+  background-color: rgb(225, 225, 225);
+}
+
+.edit_delete {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.edit_delete > a {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(203, 203, 203);
+  border-radius: 25px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
 }
