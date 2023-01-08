@@ -1,0 +1,46 @@
+html {
+  background-color: rgb(181, 176, 176);
+}
+
+body {
+  margin: 0px;
+}
+
+nav {
+  background-color: #24252A;
+  height: 3em;
+  width:100%;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo_title {
+  display: flex;
+  align-items: center;
+}
+
+.logo_title > div {
+  font-size: 1.3em;
+  color: rgb(229, 221, 221);
+  margin-left: 1em;
+}
+
+.fa-earth-asia {
+  color: rgb(229, 221, 221);
+  font-size: 3em;
+  display: flex;
+}
+
+.nav_links {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
+
+.nav_links > a {
+  color: rgb(229, 221, 221);
+  text-decoration: none;
+  font-size: 1.3em;
+}
