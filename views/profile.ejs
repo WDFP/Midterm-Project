@@ -16,14 +16,34 @@
       <link rel="stylesheet" href="/styles/profile.css">
       <script src="https://kit.fontawesome.com/dd66a066a2.js" crossorigin="anonymous"></script>
     </head>
-  <body>
-    <%- include('partials/header') %>
-    <main class="container">
-      <h2 class="title"> Username
-      </h2>
-      <h2 class="title"> Favourites
-      </h2>
-    </main>
-  </body>
 
+    <body>
+      <%- include('partials/header') %>
+      <main class="container">
+        <h2 class="title">My Maps</h2><hr>
+        <table class="table table-borderless table-hover">
+          <tbody>
+              <tr>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning my-2 my-sm-0">View</button>
+                </td>
+                  <td>
+                      <button type="button" class="btn btn-warning my-2 my-sm-0">Edit</button>
+                    </a>
+                  </td>
+                <td>
+                    <button type="submit" class="btn btn-danger my-2 my-sm-0">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="title">Favourites</h2><hr>
+          <table class="table table-borderless table-hover"></table>
+          <tbody>
+            <button type="button" class="btn btn-warning my-2 my-sm-0">View</button>
+            </td>
+          </tbody>
 </html>
