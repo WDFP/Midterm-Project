@@ -5,8 +5,6 @@ CREATE TABLE maps (
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  latitude INTEGER
-  longitude INTEGER
+  latitude DECIMAL(10, 8) NOT NULL DEFAULT 0,
+  longitude DECIMAL(11, 8) NOT NULL DEFAULT 0
 );
-
-/* latitude - 12122.12 --> example of what latitude and longitude */
