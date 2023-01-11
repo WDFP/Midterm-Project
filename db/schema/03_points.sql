@@ -7,4 +7,7 @@ CREATE TABLE points (
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
   image_url VARCHAR(255) NOT NULL
+  latitude INTEGER
+  longitude INTEGER
 );
+/* latitude - 12122.12 --> example of what latitude and longitude */
