@@ -14,17 +14,17 @@ const getMaps = () => {
 // console.log(`getMaps:`, getMaps())
 module.exports = { getMaps };
 
-const HomepageMapsDisplay = () => {
-  return db.query(`SELECT users.id as user_name, maps.name as map_name, map.description as description
-  FROM users
-  JOIN maps ON users.id = owner_id;`)
-    .then(display => {
-      return display.rows;
-    })
-    .catch((err) => {
-      console.log(err);
-      return null;
-    });
-};
+// const HomepageMapsDisplay = () => {
+//   return db.query(`SELECT users.id as user_name, maps.name as map_name, map.description as description
+//   FROM users
+//   JOIN maps ON users.id = owner_id;`)
+//     .then(display => {
+//       return display.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       return null;
+//     });
+// };
 
-module.exports = { HomepageMapsDisplay };
+// module.exports = { HomepageMapsDisplay };
