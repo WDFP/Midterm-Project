@@ -18,17 +18,39 @@ const user = {
 
 router.post('/', (req, res) => {
   if (!req.body.email || !req.body.password) {
-    req.flash("errors", "Please insert a valid username and password!");
+    res.status(400).send("400 error! Please Provide Your Information");
     res.redirect("/register");
     return;
   } else {
-    getUserByUsername(db, user.username)
-    .then(existingUser => {
-      if (existingUser) {
-        res.statusCode = 400;
-
+    getUserWithID(db, req.body.username)
+      .then(existingUser => {
+        if (existingUser) {
+          res.statusCode = 400;
+          res.status(400).send("400 error! Sorry, that username is unavailable.");
+        } else {
+          getUserWithEmail(db, req.body.email)
+            .then(existingUser => {
+              if (existingUser) {
+                res.statusCode = 400;
+                res.status(400).send("400 error! Sorry, that email is already registered");
+              } else {
+                addUser(db, user);
+                getUserWithID(db, req.body.username)
+                  .then(existingUser => {
+                    const userID = existingUser.id;
+                    const username = existingreq.body.username;
+                    req.session.user_id = userID;
+                    req.session.username = username;
+                    console.log(req.session);
+                    res.redirect(`/users/${userID}`);
+                  });
+              }
+            });
+        }
+      });
   }
 });
+
 
 
 return router;
