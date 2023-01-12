@@ -1,6 +1,7 @@
 // load .env data into process.env
 require('dotenv').config();
 
+
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
@@ -29,7 +30,7 @@ app.use(express.static('public'));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
+const homepageRoutes = require('./routes/homepage'); //
 const usersRoutes = require('./routes/users');
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
@@ -39,7 +40,7 @@ const profileRoutes = require("./routes/profile");
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
+app.use('/', homepageRoutes);
 app.use('/users', usersRoutes);
 app.use("/profile", profileRoutes);
 app.use("/register", registerRoutes);
@@ -50,8 +51,13 @@ app.use("/login", loginRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/', (req, res) => {
-  res.render('homepage');
+// // Testing right now ---
+// const homepageQuery = require('./db/queries/homepageQuery')
+// const mapRouter = express.Router();
+// mapRoutes(mapRouter, homepageQuery);
+
+
+app.get('/home', (req, res) => {
 });
 
 app.get('/map', (req, res) => {
