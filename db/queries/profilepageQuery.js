@@ -1,14 +1,5 @@
-const { request } = require('express');
-const saltRounds = 10;
-const db = require('../db/connection');
-
-
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
+const users = require('../../routes/users');
+const db = require('../connection');
 
 
 const getUserWithEmail = function (email) {
@@ -23,6 +14,8 @@ const getUserWithEmail = function (email) {
     });
 };
 
+module.exports = { getUserWithEmail };
+
 const getUserWithId = function (id) {
   return db
     .query(`SELECT * FROM users WHERE id = $1`, [id])
@@ -34,6 +27,8 @@ const getUserWithId = function (id) {
       return null;
     });
 };
+
+module.exports = { getUserWithId };
 
 const getAllMaps = () => {
   const userId = req.session.userId;
@@ -53,6 +48,25 @@ const getAllMaps = () => {
     });
 };
 
+module.exports = { getAllMaps };
 
+const getFavouritesMap = () => {
+    return db
+      .query(
+        `SELECT maps.name as my_favourite_map, count(favourites.*) as number_of_favourite_map
+        FROM favourites
+        JOiN users ON users.id = owner_id
+        JOIN maps ON maps.id = map_id
+        GROUP BY maps.name
+        ORDER BY DESC
+        LIMIT 5`)
+      .then((result) => {
+        return result.rows;
+      })
+      .catch((err) => {
+        console.log(err);
+        return null;
+      });
+  };
 
-module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+  module.exports = { getFavouritesMap };
