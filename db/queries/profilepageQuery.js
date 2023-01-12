@@ -55,8 +55,8 @@ const getFavouritesMap = () => {
       .query(
         `SELECT maps.name as my_favourite_map, count(favourites.*) as number_of_favourite_map
         FROM favourites
-        JOiN users ON users.id = userFavourites_id
-        JOIN maps ON maps.id = mapsFavourites_id
+        JOiN users ON users.id = owner_id
+        JOIN maps ON maps.id = map_id
         GROUP BY maps.name
         ORDER BY DESC
         LIMIT 5`)
