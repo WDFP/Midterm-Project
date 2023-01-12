@@ -23,3 +23,44 @@ section.containers{
   border: 2px solid red;
 }
 
+.map-table {
+  margin: 25px 0;
+  min-width: 800px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-spacing: 0;
+  border:solid #1F456E 1px;
+  border-radius:3px;
+}
+
+.map-table thead tr {
+  background-color: #1F456E;
+  color: #F3ECE7;
+  text-align: left;
+}
+
+.map-table th,
+.map-table td {
+    padding: 12px 15px;
+}
+
+.map-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.map-table tbody tr:nth-of-type(even) {
+  background-color: #F3ECE7;
+}
+
+.map-table tbody tr:nth-of-type(odd) {
+  background-color: #fdfaf8;
+}
+
+.table-button {
+  background-color: #1F456E;
+  color: #fdfaf8;
+  border-radius: 8px;
+}
+
+#delete {
+  background-color: rgb(141, 6, 6);
+}

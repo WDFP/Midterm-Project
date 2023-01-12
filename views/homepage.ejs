@@ -18,11 +18,28 @@
   <div class="main-text">
     <h1> Welcome to WikiMaps - A website for new maps</h1>
     <h2> New maps</h2>
-    <tbody>
-      <tr>
-        <%= maps[0].name %>
-      </tr>
-    </tbody>
+    <table class="map-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let id in maps) { %>
+          <tr>
+            <td><%= maps[id].name %></td>
+            <td><%= maps[id].description %></td>
+            <form method="POST" action="/<%= maps[id].id %>/map">
+              <td><button class="table-button">Go</button></td>
+            </form>
+            <td><button class="table-button" id="delete">Delete</button></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>

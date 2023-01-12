@@ -1,16 +1,14 @@
 const express = require('express');
 const router  = express.Router();
-const homepageQuery = require('../db/queries/homepageQuery')
-// console.log(homepageQuery);
+const mapQuery = require('../db/queries/mapQuery')
 
-router.get('/', (req, res) => {
-  homepageQuery.getMaps()
+router.get(':id/map', (req, res) => {
+  mapQuery.getMaps()
   .then(maps => {
-    console.log(req);
     const templatevars = {
       maps: maps
     };
-    res.render('homepage', templatevars)
+    res.render('map', templatevars)
     ;})
 
   .catch(e => {
