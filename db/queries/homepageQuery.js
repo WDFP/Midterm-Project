@@ -9,7 +9,7 @@ const getMaps = () => {
       // console.log(`data.rows:`, data.rows)
       return data.rows;
     });
-}
+};
 
 // console.log(`getMaps:`, getMaps())
 module.exports = { getMaps };
