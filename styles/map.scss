@@ -1,35 +1,56 @@
 #map {
-  height: 60em;
-  width: 80%;
+  height: 52em;
+  width: 78.5%;
 }
 
 .viewport {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  padding-top: 10px;
 }
 
-.marker_nav {
-  height: 60em;
-  background-color: #1F456E;
-  width:20%;
-  display:flex;
+.side_nav {
+  display: flex;
   flex-direction: column;
+  width:20%;
+  margin-right: 0.5%;
   align-items: center;
 }
 
+.marker_nav {
+  height: 35em;
+  background-color: #F3ECE7;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
 .marker_nav > div {
-  background-color: #ffffff;
-  width: 91%;
-  height: 12%;
-  margin-left:5px;
-  padding:5px;
+  background-color: #1F456E;
+  width: 330px;
+  height: 100px;
+  padding:12px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-bottom: 2px solid rgb(138, 138, 138);
+  margin-bottom: 5px;
+}
+
+.create_marker {
+  background-color: #1F456E;
+  width: 355px;
+  margin-top:12px;
+  color: #F3ECE7;
+  height: 250px;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 .text_information {
@@ -38,26 +59,17 @@
   align-items: center;
   padding: 5px;
   font-size: 15px;
-  color:black
+  color:#F3ECE7;
 }
 
 .text_information > p {
   margin: 0;
   width: 95%;
-  border-radius: 25px;
   padding: 3px;
 }
 
 .text_information > p:nth-child(1) {
-  background-color: rgb(203, 203, 203);
-}
-
-.text_information > p:nth-child(2) {
-  margin-top: 3px;
-}
-
-.text_information > p > span {
-  background-color: rgb(225, 225, 225);
+  font-size: 18px;
 }
 
 .edit_delete {
@@ -68,8 +80,8 @@
 
 .edit_delete > a {
   text-decoration: none;
-  color: black;
-  background-color: rgb(203, 203, 203);
+  color: #1F456E;
+  background-color: #F3ECE7;
   border-radius: 25px;
   width: 40%;
   display: flex;
