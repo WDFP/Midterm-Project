@@ -29,11 +29,11 @@ const getPoints = () => {
 module.exports = { getPoints };
 
 const createMaps = function(map) {
-  const userId = req.session.userId;
-    if (!userId) {
-      res.send({message: "not logged in"});
-      return;
-    }
+  // const userId = req.session.userId;
+  //   if (!userId) {
+  //     res.send({message: "not logged in"});
+  //     return;
+  //   }
   return db.query(
       `INSERT INTO maps (name, description, latitude, longitude)
   VALUES($1, $2, $3, $4)
@@ -51,11 +51,11 @@ const createMaps = function(map) {
 module.exports = { createMaps };
 
 const createMarker = function (point) {
-  const userId = req.session.userId;
-    if (!userId) {
-      res.send({message: "not logged in"});
-      return;
-    }
+  // const userId = req.session.userId;
+  //   if (!userId) {
+  //     res.send({message: "not logged in"});
+  //     return;
+  //   }
   return db.query(
       `INSERT INTO points (title, description, image_url, latitude, longitude)
   VALUES($1, $2, $3, $4, $5)

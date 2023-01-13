@@ -2,9 +2,10 @@ const express = require('express');
 const router  = express.Router();
 const homepageQuery = require('../db/queries/homepageQuery')
 // console.log(homepageQuery);
+const { getMaps } = require('../db/queries/homepageQuery')
 
 router.get('/', (req, res) => {
-  homepageQuery.getMaps()
+  getMaps()
   .then(maps => {
     console.log(req);
     const templatevars = {

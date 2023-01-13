@@ -31,11 +31,11 @@ const getUserWithId = function (id) {
 module.exports = { getUserWithId };
 
 const getAllMaps = () => {
-  const userId = req.session.userId;
-    if (!userId) {
-      res.send({message: "not logged in"});
-      return;
-    }
+  // const userId = req.session.userId;
+  //   if (!userId) {
+  //     res.send({message: "not logged in"});
+  //     return;
+  //   }
     return db.query(`SELECT users.id as user_name, maps.name as map_name, map.description as description
     FROM users
     JOIN maps ON users.id = owner_id;`)
