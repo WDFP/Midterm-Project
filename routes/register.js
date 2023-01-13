@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserWithID, getUserWithEmail, addUser, getUsers } = require('./helpers');
+const { getUserWithId, getUserWithEmail, addUser, getUsers } = require('./helpers');
 
 // module.exports = (db) => {
 
@@ -13,9 +13,11 @@ router.get("/", (req, res) => {
 
 router.post('/', (req, res) => {
   const user = {
-    username: req.body.username,
+    name: "test",
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    bio: "bio",
+    photo_url: "test"
   };
   const templateVars = {};
   if (!req.body.email || !req.body.password) {
@@ -23,29 +25,33 @@ router.post('/', (req, res) => {
     res.redirect("/register");
     return;
   } else {
-    getUserWithID(req.body.username)
+    getUserWithId(req.body.username)
       .then(existingUser => {
+        console.log("hello");
         if (existingUser) {
           res.statusCode = 400;
           res.status(400).send("400 error! Sorry, that username is unavailable.");
         } else {
           getUserWithEmail(req.body.email)
             .then(existingUser => {
+              console.log("hi");
               if (existingUser) {
                 res.statusCode = 400;
                 res.status(400).send("400 error! Sorry, that email is already registered");
               } else {
-                addUser(user);
-                getUserWithID(req.body.username)
-                  .then(existingUser => {
+                console.log(user);
+                addUser(user)
+                .then(existingUser => {
+                  console.log(existingUser);
+                  console.log("addUser");
                     const userID = existingUser.id;
-                    const username = existingreq.body.username;
+                    const username = existingUser.email;
                     req.session.user_id = userID;
                     req.session.username = username;
                     console.log(req.session);
-                    res.redirect(`/users/${userID}`);
-                  });
-              }
+                    res.redirect(`/`);
+              });
+            }
             });
         }
       });
