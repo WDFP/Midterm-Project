@@ -22,7 +22,7 @@
               <p><span><%= markers[marker].description %></span></p>
             </div>
             <div class="edit_delete">
-              <a href="/map">Add</a>
+              <a href="/map">Edit</a>
               <a href="/map">Delete</a>
             </div>
           </div>
@@ -30,6 +30,14 @@
       </div>
       <div class="create_marker">
         <p>Create A Marker</p>
+        <form method="GET" action="<%= map[0].id %>/addMarker">
+          <label>Name: <input type="text" name="name"></label>
+          <label>Description: <input type="text" name="description"></label>
+          <label>Image URL: <input type="text" name="image_url"></label>
+          <label>Latitude: <input type="text" name="latitude"></label>
+          <label>Longitude: <input type="text" name="longitude"></label>
+          <button>Add</button>
+        </form>
       </div>
     </div>
     <div id="map"></div>

@@ -8,46 +8,6 @@
       <a href="/">Home</a>
       <a href="/profile">Profile</a>
       <a href="/map">Maps</a>
-      <% if (user) { %>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Welcome, <%= user %>! <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%= "/profile" %>>Your Profile</a>
-            </li>
-          </ul>
-            <% if (mapName) { %>
-            <span class="navbar-text text-white">Showing map: <%= mapName %></span>
-            <i id="fav-inactive" class="far fa-star fa-2x" title="Make this map a favourite!"></i>
-            <i id="fav-active" class="fas fa-star fa-2x" title="Remove this map from favourites"></i>
-            <% } %>
-            <form method="POST" action="/logout">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-            </form>
-        </div>
-    <% } else { %>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home </span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/maps">See All Maps</a>
-          </li>
-        </ul>
-        <% if (mapName) { %>
-          <span class="navbar-text text-white">Showing map: <%= mapName %></span>
-        <% } %>
-      </div>
-      <% } %>
-
+    </div>
   </nav>
 </header>
