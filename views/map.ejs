@@ -11,6 +11,9 @@
 </head>
 <%- include('partials/header') %>
 <body>
+  <% for (let id in map) { %>
+    <%= console.log(map[id]); %>
+  <% } %>
   <div class="viewport">
     <div class="side_nav">
       <div class="marker_nav">
@@ -63,6 +66,7 @@
   </div>
   <script> 
     function initMap(){
+      console.log(map);
       let options = {
         zoom: 12,
         center: {lat: 53.5461, lng: -113.4937}
@@ -86,12 +90,14 @@
 
 
     // Testing stuff down here:
+    /*
     function addMarker(coords, map){
       let marker = new google.maps.Marker({
         position: coords,
         map: map
       })
     }
+    */
   </script>
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDyx9AbptmMmtS7aQYtOxVJDalv7Z-aHA&callback=initMap">
