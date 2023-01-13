@@ -32,7 +32,7 @@
           <tr>
             <td><%= maps[id].name %></td>
             <td><%= maps[id].description %></td>
-            <form method="POST" action="/map/<%= maps[id].id %>">
+            <form method="GET" action="/map/<%= maps[id].id %>">
               <td><button class="table-button">Go</button></td>
             </form>
             <td><button class="table-button" id="delete">Delete</button></td>

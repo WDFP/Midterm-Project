@@ -7,7 +7,6 @@ const { getMaps } = require('../db/queries/homepageQuery')
 router.get('/', (req, res) => {
   getMaps()
   .then(maps => {
-    console.log(req);
     const templatevars = {
       maps: maps
     };

@@ -42,23 +42,6 @@
   margin-bottom: 5px;
 }
 
-.create_marker {
-  background-color: #1F456E;
-  width: auto;
-  margin-top:12px;
-  color: #F3ECE7;
-  height: 250px;
-  border-radius: 20px;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-}
-
-.create_marker > p {
-  text-align: center;
-  width: 340px;
-}
-
 .text_information {
   display: flex;
   flex-direction: column;
@@ -93,4 +76,57 @@
   width: 40%;
   display: flex;
   justify-content: center;
+}
+
+.create_marker {
+  background-color: #1F456E;
+  width: auto;
+  margin-top:12px;
+  color: #F3ECE7;
+  height: 250px;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create_marker > p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+  width: 320px;
+}
+
+.create_marker > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create_marker > form > label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 320px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.create_marker > form > label > input {
+  background-color: #F3ECE7;
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 30px;
+}
+
+.create_marker > form > button {
+  margin-top: 5px;
+  color: #1F456E;
+  background-color: #F3ECE7;
+  border-radius: 8px;
+  border: none;
+  width: 80px;
 }
