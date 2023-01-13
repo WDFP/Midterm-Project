@@ -27,6 +27,14 @@ app.use(
 );
 app.use(express.static('public'));
 
+const cookieSession = require("cookie-session");
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["userID, username"],
+  })
+);
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const mapRoutes = require('./routes/map');
