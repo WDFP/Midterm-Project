@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-const addUser = function (user) {
+const addFullUser = function (user) {
   return db
     .query(
       `INSERT INTO users (name, email, bio, photo_url)
@@ -17,4 +17,21 @@ const addUser = function (user) {
     });
 };
 
-module.exports = { addUser };
+const addUserNamePassword = function (user) {
+  return db
+    .query(
+      `INSERT INTO users (name, password)
+  VALUES($1, $2)
+  RETURNING *`,
+      [user.name, user.password]
+    )
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+};
+
+module.exports = { addFullUser, addUserNamePassword };
