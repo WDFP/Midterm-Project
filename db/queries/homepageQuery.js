@@ -6,7 +6,7 @@ const db = require('../connection');
 const getMaps = () => {
   return db.query('SELECT id, name, description FROM maps;')
     .then(data => {
-      console.log(`data.rows:`, data.rows)
+      //console.log(`data.rows:`, data.rows)
       return data.rows;
     });
 };

@@ -1,7 +1,7 @@
 const db = require('../connection');
 
-const getMaps = () => {
-  return db.query('SELECT * FROM maps;')
+const getMapFromID = (id) => {
+  return db.query('SELECT * FROM maps WHERE id = $1;', [id])
     .then(data => {
       //console.log(`data.rows:`, data.rows)
       return data.rows;
@@ -9,4 +9,4 @@ const getMaps = () => {
 }
 
 // console.log(`getMaps:`, getMaps())
-module.exports = { getMaps };
+module.exports = { getMapFromID };

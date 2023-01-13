@@ -2,15 +2,14 @@ const express = require('express');
 const router  = express.Router();
 const mapQuery = require('../db/queries/mapQuery')
 
-router.get(':id/map', (req, res) => {
-  mapQuery.getMaps()
-  .then(maps => {
+router.post('/:id', (req, res) => {
+  mapQuery.getMapFromID(req.params.id)
+  .then(map => {
     const templatevars = {
-      maps: maps
+      map: map
     };
     res.render('map', templatevars)
     ;})
-
   .catch(e => {
     console.error(e);
     res.send(e)

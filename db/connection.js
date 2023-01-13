@@ -10,7 +10,13 @@ const dbParams = {
 };
 
 const db = new Pool(dbParams);
+/*
+console.log(db.query('SELECT * FROM maps').then(data => {
+  console.log(`data.rows:`, data.rows)
+  //return data.rows;
+}));
+*/
 
 db.connect();
 
-module.exports = db;
+module.exports =  db;
