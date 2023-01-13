@@ -122,7 +122,7 @@ const createMarker = function (point) {
     });
 };
 
-const addFullUser = function (user) {
+const addUser = function (user) {
   return db
     .query(
       `INSERT INTO users (name, email, bio, photo_url)
