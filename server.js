@@ -65,8 +65,8 @@ app.use("/login", loginRoutes);
 app.get('/home', (req, res) => {
 });
 
-app.get('/map', (req, res) => {
-  res.render('map');
+app.get('/createMap', (req, res) => {
+  res.render('createMap');
 })
 
 app.get('/profile', (req, res) => {
