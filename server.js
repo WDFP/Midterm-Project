@@ -56,6 +56,9 @@ app.use("/login", loginRoutes);
 // const mapRouter = express.Router();
 // mapRoutes(mapRouter, homepageQuery);
 
+// if (!req.session.user_id) {
+//   req.session.user_id = null;
+// }
 
 app.get('/home', (req, res) => {
 });
