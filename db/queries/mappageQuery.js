@@ -57,10 +57,10 @@ const createMarker = function (point) {
   //     return;
   //   }
   return db.query(
-      `INSERT INTO points (title, description, image_url, latitude, longitude)
-  VALUES($1, $2, $3, $4, $5)
+      `INSERT INTO points (map_id, contributor_id, title, description, image_url, latitude, longitude)
+  VALUES($1, $2, $3, $4, $5, $6, $7)
   RETURNING *`,
-      [point.title, point.description, point.image_url, point.latitude, point.longitude]
+      [point.map_id, point.contributor_id, point.title, point.description, point.image_url, point.latitude, point.longitude]
     )
     .then((result) => {
       return result.rows[0];
