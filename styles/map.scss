@@ -6,14 +6,14 @@
 .viewport {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: auto;
   padding-top: 10px;
 }
 
 .side_nav {
   display: flex;
   flex-direction: column;
-  width:20%;
+  width:auto;
   margin-right: 0.5%;
   align-items: center;
 }
@@ -25,13 +25,14 @@
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  margin-left: 5px;
 }
 
 .marker_nav > div {
   background-color: #1F456E;
   width: 330px;
   height: 100px;
-  padding:12px;
+  padding:10px;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -43,7 +44,7 @@
 
 .create_marker {
   background-color: #1F456E;
-  width: 355px;
+  width: auto;
   margin-top:12px;
   color: #F3ECE7;
   height: 250px;
@@ -51,6 +52,11 @@
   padding: 5px;
   display: flex;
   justify-content: center;
+}
+
+.create_marker > p {
+  text-align: center;
+  width: 340px;
 }
 
 .text_information {
@@ -64,8 +70,9 @@
 
 .text_information > p {
   margin: 0;
-  width: 95%;
+  width: 300px;
   padding: 3px;
+  text-align: left;
 }
 
 .text_information > p:nth-child(1) {

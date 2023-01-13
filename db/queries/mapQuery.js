@@ -8,5 +8,12 @@ const getMapFromID = (id) => {
     });
 }
 
+const getMarkersForMap = (id) => {
+  return db.query('SELECT * FROM points WHERE map_id = $1;', [id])
+    .then(data => {
+      return data.rows;
+    });
+}
+
 // console.log(`getMaps:`, getMaps())
-module.exports = { getMapFromID };
+module.exports = { getMapFromID, getMarkersForMap };
