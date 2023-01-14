@@ -15,5 +15,19 @@ const getMarkersForMap = (id) => {
     });
 }
 
+const deleteMarker = (id) => {
+  return db.query('DELETE FROM points WHERE id = $1', [id])
+    .then(data => {
+      return data.rows;
+    });
+}
+
+const getMapIDFromMarker = (id) => {
+  return db.query('SELECT maps.id FROM maps JOIN points ON maps.id = points.map_id WHERE points.id = 6;', [id])
+    .then(data => {
+      return data.rows;
+    });
+}
+
 // console.log(`getMaps:`, getMaps())
-module.exports = { getMapFromID, getMarkersForMap };
+module.exports = { getMapFromID, getMarkersForMap, deleteMarker, getMapIDFromMarker };
