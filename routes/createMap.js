@@ -25,4 +25,17 @@ router.post('/createMap', (req, res) => {
   });
   })
 
+  router.get('/delete/:id', (req, res) => {
+    const templatevars = {};
+    console.log(`req: ` , Number(req.params.id));
+    helper.deleteMap(Number(req.params.id))
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(e => {
+      console.error(e);
+      res.send(e)
+    });
+  });
+
 module.exports = router;

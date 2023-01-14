@@ -86,4 +86,15 @@ const createMap = function (map) {
     });
 };
 
-module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap };
+const deleteMap = function(id){
+  return db.query(
+    `DELETE FROM maps
+    WHERE id = $1;`,
+    [id]
+  ).then((data) => {
+    console.log(data)
+    return data.rows;
+  })
+}
+
+module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap, deleteMap};

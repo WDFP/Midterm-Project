@@ -37,7 +37,9 @@
             <form method="GET" action="/map/<%= maps[id].id %>">
               <td><button class="table-button">Go</button></td>
             </form>
-            <td><button class="table-button" id="delete">Delete</button></td>
+            <form method="GET" action="createMap/delete/<%= maps[id].id %>">
+              <td><button class="table-button" id="delete">Delete</button></td>
+            </form>
           </tr>
         <% } %>
       </tbody>
