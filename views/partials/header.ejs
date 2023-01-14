@@ -2,13 +2,11 @@
   <nav >
     <div class="logo_title">
       <i class="fa-solid fa-earth-asia"></i>
-      <div>Wiki Map</div>
+      <div><a href="/" > Wiki Map </a></div>
     </div>
     <div class="nav_links">
-      <div>
-        <a href="/">Home</a>
-      </div>
       <% if (user) { %>
+    <section class="nav_text">
       <div>
         <a href="/profile">Profile</a>
       </div>
@@ -16,10 +14,17 @@
         <a href="/createMap"> Create Map</a>
       </div>
       <div>
-        <form method="POST" action="/logout">
           <a href="/logout"> Logout</a>
-        </form>
       </div>
-      <% } %>
+    </section>
+        <% } else { %>
+          <div>
+            <a href="/login"> Login</a>
+            </div>
+            <div>
+            <a href="/register"> Register</a>
+            </div>
+            <% } %>
+    </div>
   </nav>
 </header>
