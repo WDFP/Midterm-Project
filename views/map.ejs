@@ -21,6 +21,8 @@
               <p><%= markers[marker].title %></p>
               <p><span><%= markers[marker].description %></span></p>
             </div>
+            <!-- if else  -->
+            <% if (user) { %>
             <div class="edit_delete">
               <form method="GET" action="<%= markers[marker].id %>/editMarker">
                 <button>Edit</button>
@@ -29,10 +31,13 @@
                 <button>Delete</button>
               </form>
             </div>
-          </div>
+            <% } else { %>
+          <% } %>
+        </div>
        <% } %>
       </div>
       <div class="create_marker">
+        <% if (user) { %>
         <p>Create A Marker</p>
         <form method="GET" action="<%= map[0].id %>/addMarker">
           <label>Name: <input type="text" name="name"></label>
@@ -42,6 +47,11 @@
           <label>Longitude: <input type="text" name="longitude"></label>
           <button>Add</button>
         </form>
+        <% } else { %>
+          <p>
+            To create a marker, please login
+          </p>
+          <% } %>
       </div>
     </div>
     <div id="map"></div>
@@ -69,7 +79,7 @@
 
       // We loop through the marker data to load any markers that exist for the current map.
       for (markers in markerData) {
-        
+
         // This is the information passed in to form the html within the infoWindow
         const content = `<h3>${markerData[markers].title}</h3><img src=${markerData[markers].image_url} alt=${markerData[markers].title} width='300'>`;
 
