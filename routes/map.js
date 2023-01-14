@@ -13,9 +13,7 @@ router.get('/:id', (req, res) => {
     templatevars.map = map;
     mapQuery.getMarkersForMap(req.params.id)
     .then(markers => {
-      // console.log('markers: ', markers);
       templatevars.markers = markers;
-      // console.log('templatevars: ', templatevars);
       res.render('map', templatevars);
     })
     ;})
@@ -64,5 +62,29 @@ router.get('/:id/deleteMarker', (req, res) => {
     res.send(e)
   });
 });
+
+router.get('/:id/editMarker', (req, res) => {
+  const templatevars = {};
+  templatevars.id = req.params.id;
+  res.render('editMarker', templatevars);
+})
+
+router.post('/:id/editMarkerSubmit', (req, res) => {
+  const body = {
+    name: req.body.name,
+    description: req.body.description,
+    image_url: req.body.image_url,
+    latitude: req.body.latitude,
+    longitude: req.body.latitude
+  };
+  mapQuery.editMarker(body, req.params.id)
+  .then(() => {
+    res.redirect('/');
+  })
+  .catch(e => {
+    console.error(e);
+    res.send(e)
+  });
+})
 
 module.exports = router;
