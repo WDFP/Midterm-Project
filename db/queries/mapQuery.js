@@ -29,5 +29,12 @@ const getMapIDFromMarker = (id) => {
     });
 }
 
+const editMarker = (body, id) => {
+  return db.query('UPDATE points SET title = $1, description = $2, image_url = $3, latitude = $4, longitude = $5 WHERE id = $6', [body.name, body.description, body.image_url, body.latitude, body.longitude, id])
+    .then(data => {
+      return data.rows;
+    });
+}
+
 // console.log(`getMaps:`, getMaps())
-module.exports = { getMapFromID, getMarkersForMap, deleteMarker, getMapIDFromMarker };
+module.exports = { getMapFromID, getMarkersForMap, deleteMarker, getMapIDFromMarker, editMarker };
