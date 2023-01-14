@@ -37,6 +37,7 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+const createMapRoutes = require('./routes/createMap');
 const mapRoutes = require('./routes/map');
 const userApiRoutes = require('./routes/users-api');
 const homepageRoutes = require('./routes/homepage');
@@ -49,6 +50,7 @@ const logoutRoutes = require("./routes/logout");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
+app.use('/createMap', createMapRoutes)
 app.use('/map', mapRoutes);
 app.use('/api/users', userApiRoutes);
 app.use('/', homepageRoutes);
@@ -82,6 +84,17 @@ app.get('/createMap', (req, res) => {
 app.get('/profile', (req, res) => {
   res.render('profile');
 })
+
+app.get('/login/', (req, res) => {
+  // using encrypted cookies
+  req.session.user_id = req.params.id;
+
+  // or using plain-text cookies
+  res.cookie('user_id', req.params.id);
+
+  // send the user somewhere
+  res.redirect('/');
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

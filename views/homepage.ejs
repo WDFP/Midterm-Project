@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="/styles/homepage.css">
   <script src="https://kit.fontawesome.com/dd66a066a2.js" crossorigin="anonymous"></script>
 </head>
-<%- include('partials/header') %>
 <body>
+  <head>
+    <%- include('partials/header') %>
+  </head>
  <section class="main-hero">
   <div class="main-text">
     <h1> Welcome to WikiMaps - A website for new maps</h1>
@@ -35,11 +37,16 @@
             <form method="GET" action="/map/<%= maps[id].id %>">
               <td><button class="table-button">Go</button></td>
             </form>
-            <td><button class="table-button" id="delete">Delete</button></td>
+            <form method="GET" action="createMap/delete/<%= maps[id].id %>">
+              <td><button class="table-button" id="delete">Delete</button></td>
+            </form>
           </tr>
         <% } %>
       </tbody>
     </table>
   </div>
+  </section>
+    <%- include('partials/footer') %>
 </body>
+
 </html>

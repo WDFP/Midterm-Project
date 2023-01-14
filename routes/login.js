@@ -20,26 +20,6 @@ const { getUserWithID, getUserWithEmail, addUser, getUsers } = require('./helper
       bio: "bio",
       photo_url: "test"
     };
-    const templateVars = {};
-    if (!req.body.email || !req.body.password) {
-      res.status(400).send("400 error! Please Provide Your Login Info");
-    } else {
-      getUserWithID(db, req.body.username)
-        .then(existingUser => {
-          if (!existingUser) {
-            res.statusCode = 403;
-            res.status(403).send("400 error! Sorry, the username/password is incorrect.");
-          } else {
-            getUserWithEmail(db, req.body.email)
-              .then(existingUser => {
-                if (!existingUser) {
-                  res.statusCode = 403;
-                  res.status(403).send("400 error! Sorry, the username/password is incorrect.");
-                }
-              })
-          }
-        })
-    }
 });
 
 

@@ -70,6 +70,31 @@ const addUser = function (user) {
     });
 };
 
+const createMap = function (map) {
+  return db.query(
+      `INSERT INTO maps(owner_id, name, description, latitude, longitude)
+      VALUES($1, $2, $3, $4, $5)
+      RETURNING *`,
+      [map.owner_id, map.name, map.description, map.latitude, map.longitude]
+    )
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+};
 
+const deleteMap = function(id){
+  return db.query(
+    `DELETE FROM maps
+    WHERE id = $1;`,
+    [id]
+  ).then((data) => {
+    console.log(data)
+    return data.rows;
+  })
+}
 
-module.exports = { addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap, deleteMap};
