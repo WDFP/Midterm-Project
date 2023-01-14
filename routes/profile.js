@@ -1,16 +1,17 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserWithId, getUserWithEmail, addUser, getUsers, getFavouritesMap } = require('./helpers');
+const { getUserMaps, getUserWithId, getUserWithEmail, addUser, getUsers, getFavouritesMap } = require('./helpers');
 
-router.get('/id', (req, res) => {
-  const currentUser = req.session.user_id;
+router.get('/', (req, res) => {
   const requestedUserId = req.params.id;
   const templateVars = {};
-  getUserWithId(db, requestedUserId)
+  console.log("hello");
+  res.render('profile');
+  getUserWithId()
     .then(user => {
       templateVars.ownerIsLoggedIn = currentUser === user.id;
       templateVars.username = user.username;
-      getFavouritesMap(db, requestedUserId)
+      getFavouritesMap(requestedUserId)
         .then(userFavourites => {
           templateVars.userFavourites = userFavourites;
                   res.render('profile', templateVars);
