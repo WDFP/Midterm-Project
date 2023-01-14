@@ -70,6 +70,25 @@ const addUser = function (user) {
     });
 };
 
+const getFavouritesMap = () => {
+  return db
+    .query(
+      `SELECT maps.name as my_favourite_map, count(favourites.*) as number_of_favourite_map
+      FROM favourites
+      JOiN users ON users.id = owner_id
+      JOIN maps ON maps.id = map_id
+      GROUP BY maps.name
+      ORDER BY DESC
+      LIMIT 5`)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+};
 
 
-module.exports = { addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+
+module.exports = { getFavouritesMap, addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
