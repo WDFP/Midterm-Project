@@ -64,7 +64,9 @@ router.get('/:id/deleteMarker', (req, res) => {
 });
 
 router.get('/:id/editMarker', (req, res) => {
-  const templatevars = {};
+  const templatevars = {
+    user: req.session.username
+  };
   templatevars.id = req.params.id;
   res.render('editMarker', templatevars);
 })
