@@ -70,18 +70,15 @@ const addUser = function (user) {
     });
 };
 
-const getFavouritesMap = () => {
-  return db
-    .query(
-      `SELECT maps.name as my_favourite_map, count(favourites.*) as number_of_favourite_map
-      FROM favourites
-      JOiN users ON users.id = owner_id
-      JOIN maps ON maps.id = map_id
-      GROUP BY maps.name
-      ORDER BY DESC
-      LIMIT 5`)
+const createMap = function (map) {
+  return db.query(
+      `INSERT INTO maps(owner_id, name, description, latitude, longitude)
+      VALUES($1, $2, $3, $4, $5)
+      RETURNING *`,
+      [map.owner_id, map.name, map.description, map.latitude, map.longitude]
+    )
     .then((result) => {
-      return result.rows;
+      return result.rows[0];
     })
     .catch((err) => {
       console.log(err);
@@ -89,6 +86,4 @@ const getFavouritesMap = () => {
     });
 };
 
-
-
-module.exports = { getFavouritesMap, addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap };
