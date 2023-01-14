@@ -13,7 +13,7 @@
   </head>
   <%- include('partials/header') %>
   <body>
-    <form action="" method="POST">
+    <form action="createMap/createMap" method="POST">
       <div class="container">
         <h1>Create a Map</h1>
         <p>Please fill in this form to create a map.</p>
@@ -26,10 +26,10 @@
         <input type="text" placeholder="Enter description (ex. Best places for burgers)" name="description" id="description" required>
 
         <label for="latitude"><b>Latitude</b></label>
-        <input type="number" placeholder="Latitude (ex. 38.8951)" name="latitude" id="latitude" required>
+        <input type="text" placeholder="Latitude (ex. 38.8951)" name="latitude" id="latitude" required>
 
         <label for="longitude"><b>Longitude</b></label>
-        <input type="number" placeholder="Longitude (ex. -77.0364)" name="longitude" id="longitude" required>
+        <input type="text" placeholder="Longitude (ex. -77.0364)" name="longitude" id="longitude" required>
         <hr>
 
         <p> Click button below to create a new map</p>

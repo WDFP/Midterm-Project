@@ -60,6 +60,13 @@ const addUser = function (user) {
   VALUES($1, $2, $3, $4)
   RETURNING *`,
       [user.name, user.email, user.bio, user.photo_url]
+
+const createMap = function (map) {
+  return db.query(
+      `INSERT INTO maps(owner_id, name, description, latitude, longitude)
+      VALUES($1, $2, $3, $4, $5)
+      RETURNING *`,
+      [map.owner_id, map.name, map.description, map.latitude, map.longitude]
     )
     .then((result) => {
       return result.rows[0];
@@ -72,4 +79,4 @@ const addUser = function (user) {
 
 
 
-module.exports = { addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+module.exports = { addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers, createMap };

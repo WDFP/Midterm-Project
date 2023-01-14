@@ -48,10 +48,10 @@ router.post('/', (req, res) => {
                     const username = existingUser.email;
                     req.session.user_id = userID;
                     req.session.username = username;
-                    console.log(req.session);
-                    res.redirect(`/`);
-              });
-            }
+                    // console.log(req.session);
+                    res.redirect(`/users/${userID}`);
+                  });
+              }
             });
         }
       });
