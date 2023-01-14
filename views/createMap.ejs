@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title> Create Map </title>
+      <!--Custom CSS design-->
+      <!-- Header-->
+      <link rel="stylesheet" href="/styles/header.css">
+      <!-- Homepage-->
+      <link rel="stylesheet" href="/styles/homepage.css">
+      <!-- createMap-->
+      <link rel="stylesheet" href="/styles/createMap.css">
+
+      <script src="https://kit.fontawesome.com/dd66a066a2.js" crossorigin="anonymous"></script>
+  </head>
+  <%- include('partials/header') %>
+  <body>
+    <form action="" method="POST">
+      <div class="container">
+        <h1>Create a Map</h1>
+        <p>Please fill in this form to create a map.</p>
+        <hr>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name (ex. Washington DC)" name="name" id="name" required>
+
+        <label for="description"><b>Description</b></label>
+        <input type="text" placeholder="Enter description (ex. Best places for burgers)" name="description" id="description" required>
+
+        <label for="latitude"><b>Latitude</b></label>
+        <input type="number" placeholder="Latitude (ex. 38.8951)" name="latitude" id="latitude" required>
+
+        <label for="longitude"><b>Longitude</b></label>
+        <input type="number" placeholder="Longitude (ex. -77.0364)" name="longitude" id="longitude" required>
+        <hr>
+
+        <p> Click button below to create a new map</p>
+        <button type="submit" class="createbtn">Create Map</button>
+      </div>
+
+    </form>
+  </body>
+</html>

@@ -8,15 +8,17 @@ const { getUserWithID, getUserWithEmail, addUser, getUsers } = require('./helper
     if (!userID) {
       res.render('login', {user: username, id: userID});
     } else {
-      res.redirect('/register');
+      res.redirect('/');
     }
   });
 
   router.post('/', (req, res) => {
     const user = {
-      username: req.body.username,
+      name: "test",
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      bio: "bio",
+      photo_url: "test"
     };
     const templateVars = {};
     if (!req.body.email || !req.body.password) {

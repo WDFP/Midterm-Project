@@ -44,6 +44,7 @@ const usersRoutes = require('./routes/users');
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const profileRoutes = require("./routes/profile");
+const logoutRoutes = require("./routes/logout");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +56,7 @@ app.use('/users', usersRoutes);
 app.use("/profile", profileRoutes);
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
+app.use("/logout", logoutRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -73,8 +75,8 @@ app.use("/login", loginRoutes);
 app.get('/home', (req, res) => {
 });
 
-app.get('/map', (req, res) => {
-  res.render('map');
+app.get('/createMap', (req, res) => {
+  res.render('createMap');
 })
 
 app.get('/profile', (req, res) => {
