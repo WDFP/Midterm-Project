@@ -83,6 +83,17 @@ app.get('/profile', (req, res) => {
   res.render('profile');
 })
 
+app.get('/login/', (req, res) => {
+  // using encrypted cookies
+  req.session.user_id = req.params.id;
+
+  // or using plain-text cookies
+  res.cookie('user_id', req.params.id);
+
+  // send the user somewhere
+  res.redirect('/');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
