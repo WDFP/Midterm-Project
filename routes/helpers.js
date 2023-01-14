@@ -53,6 +53,23 @@ const getAllMaps = () => {
     });
 };
 
+const addUser = function (user) {
+  return db
+    .query(
+      `INSERT INTO users (name, email, bio, photo_url)
+  VALUES($1, $2, $3, $4)
+  RETURNING *`,
+      [user.name, user.email, user.bio, user.photo_url]
+    )
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+};
+
 const createMap = function (map) {
   return db.query(
       `INSERT INTO maps(owner_id, name, description, latitude, longitude)
@@ -69,4 +86,4 @@ const createMap = function (map) {
     });
 };
 
-module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, createMap };
+module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap };
