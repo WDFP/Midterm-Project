@@ -1,6 +1,6 @@
-html {
-  background-color: #F3ECE7;
-}
+// html {
+//   background-color: #F3ECE7;
+// }
 
 body {
   margin: 0px;
@@ -14,6 +14,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+div.nav_links{
+  color: #F3ECE7;
 }
 
 .logo_title {
@@ -36,11 +40,13 @@ nav {
 .nav_links {
   display: flex;
   justify-content: space-between;
-  width: 15%;
+  width: 20%;
 }
 
-.nav_links > a {
+.nav_links > div > a {
   color: #F3ECE7;
   text-decoration: none;
   font-size: 1.3em;
 }
+
+
