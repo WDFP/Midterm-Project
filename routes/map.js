@@ -10,9 +10,9 @@ router.post('/:id', (req, res) => {
     templatevars.map = map;
     mapQuery.getMarkersForMap(req.params.id)
     .then(markers => {
-      console.log('markers: ', markers);
+      // console.log('markers: ', markers);
       templatevars.markers = markers;
-      console.log('templatevars: ', templatevars);
+      // console.log('templatevars: ', templatevars);
       res.render('map', templatevars);
     })
     ;})

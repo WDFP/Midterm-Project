@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
                     const username = existingreq.body.username;
                     req.session.user_id = userID;
                     req.session.username = username;
-                    console.log(req.session);
+                    // console.log(req.session);
                     res.redirect(`/users/${userID}`);
                   });
               }
