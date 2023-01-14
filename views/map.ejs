@@ -23,7 +23,9 @@
             </div>
             <div class="edit_delete">
               <a href="/map">Edit</a>
-              <a href="/map">Delete</a>
+              <form method="GET" action="<%= markers[marker].id %>/deleteMarker">
+                <button>Delete</button>
+              </form>
             </div>
           </div>
        <% } %>
