@@ -35,14 +35,14 @@ router.get('/:id/addMarker', (req, res) => {
   mapPageQuery.createMarker(point)
   .then( () => {
     mapQuery.getMapFromID(req.params.id)
-  .then(map => {
-    templatevars.map = map;
-    mapQuery.getMarkersForMap(req.params.id)
-    .then(markers => {
+    .then(map => {
+      templatevars.map = map;
+      mapQuery.getMarkersForMap(req.params.id)
+      .then(markers => {
       templatevars.markers = markers;
       res.redirect(`/map/${req.params.id}`);
-    })
-    ;})
+    });
+  })
   .catch(e => {
     console.error(e);
     res.send(e)
@@ -50,20 +50,15 @@ router.get('/:id/addMarker', (req, res) => {
   })
 })
 
-/* Previous POST request
-router.post('/:id', (req, res) => {
-  mapQuery.getMapFromID(req.params.id)
-  .then(map => {
-    const templatevars = {
-      map: map
-    };
-    res.render('map', templatevars)
-    ;})
+router.get('/:id/deleteMarker', (req, res) => {
+  mapQuery.deleteMarker(req.params.id)
+  .then(() => {
+    res.redirect('/');
+  })
   .catch(e => {
     console.error(e);
     res.send(e)
   });
 });
-*/
 
 module.exports = router;
