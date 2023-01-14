@@ -5,7 +5,9 @@ const mapQuery = require('../db/queries/mapQuery')
 const mapPageQuery = require('../db/queries/mappageQuery')
 
 router.get('/:id', (req, res) => {
-  const templatevars = {};
+  const templatevars = {
+    user: req.session.username,
+  };
   mapQuery.getMapFromID(req.params.id)
   .then(map => {
     templatevars.map = map;

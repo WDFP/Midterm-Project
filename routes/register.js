@@ -6,7 +6,9 @@ const { getUserWithId, getUserWithEmail, addUser, getUsers } = require('./helper
 
 // if user is not logged in
 router.get("/", (req, res) => {
-  const templateVars = {};
+  const templateVars = {
+    user: req.session.username,
+  };
   res.render("register", templateVars);
 });
 

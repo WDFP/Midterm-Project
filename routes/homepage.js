@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   getMaps()
   .then(maps => {
     const templatevars = {
+      user: req.session.username,
       maps: maps
     };
     res.render('homepage', templatevars)

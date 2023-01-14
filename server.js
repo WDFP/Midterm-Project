@@ -78,7 +78,10 @@ app.get('/home', (req, res) => {
 });
 
 app.get('/createMap', (req, res) => {
-  res.render('createMap');
+  const templateVars = {
+    user: req.session.username
+  }
+  res.render('createMap', templateVars);
 })
 
 app.get('/profile', (req, res) => {

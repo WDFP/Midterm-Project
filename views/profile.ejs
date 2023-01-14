@@ -22,34 +22,35 @@
       <main class="container">
         <h2 class="title">My Maps</h2><hr>
         <table class="table table-borderless table-hover">
+
           <tbody>
+            <% for (let id in maps) { %>
               <tr>
-                <td class="align-middle">
-                </td>
-                <td>
-              <tr>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-view">View</button>
-                </td>
-                  <td>
-                      <button type="button" class="btn btn-edit">Edit</button>
-                    </a>
-                  </td>
-                <td>
-                    <button type="submit" class="btn btn-delete">Delete</button>
-                  </form>
-                </td>
+                <td><%= maps[id].name %></td>
+                <td><%= maps[id].description %></td>
+                <form method="GET" action="/map/<%= maps[id].id %>">
+                  <td><button class="table-button">Go</button></td>
+                </form>
+                <form method="GET" action="createMap/delete/<%= maps[id].id %>">
+                  <td><button class="table-button" id="delete">Delete</button></td>
+                </form>
               </tr>
-            </tbody>
+            <% } %>
           </table>
 
           <h2 class="title">Favourites</h2><hr>
           <table class="table table-borderless table-hover"></table>
-          <tbody>
-            <button type="button" class="btn btn-view">View</button>
-            </td>
-          </tbody>
+          <% for (let id in maps) { %>
+            <tr>
+              <td><%= maps[id].name %></td>
+              <td><%= maps[id].description %></td>
+              <form method="GET" action="/map/<%= maps[id].id %>">
+                <td><button class="table-button">Go</button></td>
+              </form>
+              <form method="GET" action="createMap/delete/<%= maps[id].id %>">
+              </form>
+            </tr>
+          <% } %>
 
           <!--Scripts-->
           <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>

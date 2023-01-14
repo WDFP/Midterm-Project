@@ -7,7 +7,7 @@ const helper = require('./helpers')
 router.post('/createMap', (req, res) => {
   const templatevars = {};
   const map = {
-    owner_id: 1,
+    owner_id: req.session.user_id,
     name: req.body.name,
     description: req.body.description,
     latitude: parseFloat(req.body.latitude),

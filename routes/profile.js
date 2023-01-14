@@ -1,23 +1,34 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserMaps, getUserWithId, getUserWithEmail, addUser, getUsers, getFavouritesMap } = require('./helpers');
+const { getAllMaps, getUserWithId, getUserWithEmail, addUser, getUsers, getFavouritesMap } = require('./helpers');
 
 router.get('/', (req, res) => {
+  getAllMaps(req.session.user_id)
+  .then(maps => {
+  console.log(req.session)
+  // const userId = req.session.userID;
   const requestedUserId = req.params.id;
-  const templateVars = {};
-  console.log("hello");
-  res.render('profile');
+  // if (!userId) {
+  //   res.send({message: "not logged in"});
+  //   return;
+  // }
+  const templateVars = {
+    user: req.session.username,
+    maps: maps
+  };
+  console.log(templateVars);
   getUserWithId()
-    .then(user => {
-      templateVars.ownerIsLoggedIn = currentUser === user.id;
-      templateVars.username = user.username;
-      getFavouritesMap(requestedUserId)
-        .then(userFavourites => {
-          templateVars.userFavourites = userFavourites;
-                  res.render('profile', templateVars);
-                });
-            });
-        });
+  .then(user => {
+    templateVars.ownerIsLoggedIn === req.session.user_id;
+    templateVars.username = req.body.username;
+    getFavouritesMap(requestedUserId)
+    .then(userFavourites => {
+      templateVars.userFavourites = userFavourites;
+              res.render('profile', templateVars);
+      });
+    });
+  });
+});
 
 
 

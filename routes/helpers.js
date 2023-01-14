@@ -35,15 +35,8 @@ const getUserWithId = function (id) {
     });
 };
 
-const getAllMaps = () => {
-  const userId = req.session.userId;
-    if (!userId) {
-      res.send({message: "not logged in"});
-      return;
-    }
-    return db.query(`SELECT users.id as user_name, maps.name as map_name, map.description as description
-    FROM users
-    JOIN maps ON users.id = owner_id;`)
+const getAllMaps = (id) => {
+    return db.query(`SELECT * FROM maps WHERE owner_id = $1;`,[id])
       .then(display => {
         return display.rows;
       })
@@ -97,4 +90,24 @@ const deleteMap = function(id){
   })
 }
 
-module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap, deleteMap};
+const getFavouritesMap = () => {
+  return db
+    .query(
+      `SELECT maps.name as my_favourite_map, count(favourites.*) as number_of_favourite_map
+      FROM favourites
+      JOiN users ON users.id = owner_id
+      JOIN maps ON maps.id = map_id
+      GROUP BY maps.name
+      ORDER BY DESC
+      LIMIT 5`)
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+};
+
+
+module.exports = { getUserWithEmail, getUserWithId, getAllMaps, getUsers, addUser, createMap, deleteMap, getFavouritesMap};
