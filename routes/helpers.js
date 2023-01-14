@@ -89,6 +89,17 @@ const getFavouritesMap = () => {
     });
 };
 
+const getUserMaps = function() {
+  return db.query(`
+  SELECT title, id
+  FROM maps
+  WHERE maps.user_id = $1
+  AND maps.removed_at IS NULL
+  `, [user])
+    .then(res => res.rows);
+};
 
 
-module.exports = { getFavouritesMap, addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
+
+
+module.exports = { getUserMaps, getFavouritesMap, addUser, getUserWithEmail, getUserWithId, getAllMaps, getUsers };
