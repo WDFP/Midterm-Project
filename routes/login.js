@@ -8,36 +8,18 @@ const { getUserWithID, getUserWithEmail, addUser, getUsers } = require('./helper
     if (!userID) {
       res.render('login', {user: username, id: userID});
     } else {
-      res.redirect('/register');
+      res.redirect('/');
     }
   });
 
   router.post('/', (req, res) => {
     const user = {
-      username: req.body.username,
+      name: "test",
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      bio: "bio",
+      photo_url: "test"
     };
-    const templateVars = {};
-    if (!req.body.email || !req.body.password) {
-      res.status(400).send("400 error! Please Provide Your Login Info");
-    } else {
-      getUserWithID(db, req.body.username)
-        .then(existingUser => {
-          if (!existingUser) {
-            res.statusCode = 403;
-            res.status(403).send("400 error! Sorry, the username/password is incorrect.");
-          } else {
-            getUserWithEmail(db, req.body.email)
-              .then(existingUser => {
-                if (!existingUser) {
-                  res.statusCode = 403;
-                  res.status(403).send("400 error! Sorry, the username/password is incorrect.");
-                }
-              })
-          }
-        })
-    }
 });
 
 

@@ -45,6 +45,7 @@ const usersRoutes = require('./routes/users');
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const profileRoutes = require("./routes/profile");
+const logoutRoutes = require("./routes/logout");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,6 +58,7 @@ app.use('/users', usersRoutes);
 app.use("/profile", profileRoutes);
 app.use("/register", registerRoutes);
 app.use("/login", loginRoutes);
+app.use("/logout", logoutRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -82,6 +84,17 @@ app.get('/createMap', (req, res) => {
 app.get('/profile', (req, res) => {
   res.render('profile');
 })
+
+app.get('/login/', (req, res) => {
+  // using encrypted cookies
+  req.session.user_id = req.params.id;
+
+  // or using plain-text cookies
+  res.cookie('user_id', req.params.id);
+
+  // send the user somewhere
+  res.redirect('/');
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
